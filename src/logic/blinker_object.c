@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "include/blinker_object.h"
+#include "blinker_objects.h"
 
 // Expected on-disk format (plain text, one token per line):
 //   CODE <count>

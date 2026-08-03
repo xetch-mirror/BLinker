@@ -1,10 +1,11 @@
 CC      := gcc
-CFLAGS  := -std=c2x -march=x86-64 
+CFLAGS  := -std=c2x -march=x86-64 -Isrc -Isrc/include -Isrc/convert/include
 LDFLAGS :=
 
 TARGET  := blinker
+OBJDIR  := build
 SRCS    := $(shell find . -name '*.c')
-OBJS    := $(SRCS:.c=.o)
+OBJS    := $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
 
 PREFIX  := /usr/local
 
@@ -15,7 +16,8 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $(OBJS)
 
-%.o: %.c
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -Isrc/include -c -o $@ $<
 
 install: $(TARGET)
@@ -26,4 +28,4 @@ uninstall:
 	rm -f $(PREFIX)/bin/$(TARGET)
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -rf $(OBJDIR) $(TARGET)

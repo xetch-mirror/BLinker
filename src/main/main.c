@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "include/blinker_types.h"
-#include "include/blinker_object.h"
+#include "include/blinker_objects.h"
 #include "include/blinker_link.h"
 
 int ends_with(const char *str, const char *suffix) {

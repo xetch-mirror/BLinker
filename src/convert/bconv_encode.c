@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "include/bconv_format.h"
+#include "bconv_format.h"
 
 // Looks up an opcode's mnemonic + operand-flag by its enum value
 static const OpEntry *find_by_op(OpCode op) {

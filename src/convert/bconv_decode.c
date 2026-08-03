@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "include/bconv_format.h"
+#include "bconv_format.h"
 
 static OpCode find_by_mnemonic(char c0, char c1, int *has_operand) {
     for (int i = 0; i < (int)BCONV_OPTABLE_LEN; i++) {
